@@ -1,3 +1,3 @@
 # EXIFscrambler
 
-A Python script that adds randomized data to an image's EXIF data to poison data.
+A Python script that poisons an image's EXIF data with randomized information.
