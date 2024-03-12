@@ -52,11 +52,10 @@ def scramble_exif(input_path, output_path):
     }
     exif_bytes = piexif.dump(exif_dict)
 
-    # Save the new image with randomized EXIF data
     img.save(output_path, "jpeg", exif=exif_bytes)
     print(f"Image saved with randomized EXIF data at {output_path}")
 
-# Specify your input and output image paths
+
 input_image_path = "job.png"
 output_image_path = "/Users/Jonathan/Desktop/exif scrambler/new.png"
 
