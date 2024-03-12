@@ -43,9 +43,9 @@ def scramble_exif(input_path, output_path):
     # Generate other randomized EXIF data
     exif_dict = {
         "0th": {
-            piexif.ImageIFD.Make: "RandomCameraMake",
-            piexif.ImageIFD.Model: "RandomCameraModel",
-            piexif.ImageIFD.Software: "RandomSoftware"
+            piexif.ImageIFD.Make: input("Camera Make: "),
+            piexif.ImageIFD.Model: input("Camera Model: "),
+            piexif.ImageIFD.Software: input("Software: ")
         },
         "Exif": {},
         "GPS": gps_exif
