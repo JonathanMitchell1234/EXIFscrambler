@@ -1,6 +1,6 @@
 import piexif
 from PIL import Image
-from random import uniform
+from random import choice, uniform
 from fractions import Fraction
 
 def convert_to_rational(number):
@@ -31,6 +31,10 @@ def random_gps_coord():
     return lat, lon
 
 def scramble_exif(input_path, output_path):
+    # List of camera makes and models
+    camera_makes = ['Canon', 'Nikon', 'Sony', 'Fujifilm', 'Olympus', 'Panasonic', 'Leica', 'Pentax', 'Sigma', 'Hasselblad']
+    camera_models = ['EOS 5D Mark IV', 'D850', 'Alpha 7R IV', 'X-T4', 'OM-D E-M1 Mark III', 'Lumix GH5', 'Q2', 'K-3 III', 'fp L', 'X1D II 50C']
+
     # Load the image
     img = Image.open(input_path)
     if img.mode == 'RGBA':
@@ -40,12 +44,16 @@ def scramble_exif(input_path, output_path):
     lat, lon = random_gps_coord()
     gps_exif = get_exif_ifd(lat, lon)
 
-    # Generate other randomized EXIF data
+    # Select a random make and model
+    random_make = choice(camera_makes)
+    random_model = choice(camera_models)
+
+    # Generate randomized EXIF data
     exif_dict = {
         "0th": {
-            piexif.ImageIFD.Make: input("Camera Make: "),
-            piexif.ImageIFD.Model: input("Camera Model: "),
-            piexif.ImageIFD.Software: input("Software: ")
+            piexif.ImageIFD.Make: random_make,
+            piexif.ImageIFD.Model: random_model,
+            piexif.ImageIFD.Software: "RandomSoftware"  # Or any specific software you wish to use
         },
         "Exif": {},
         "GPS": gps_exif
@@ -54,7 +62,6 @@ def scramble_exif(input_path, output_path):
 
     img.save(output_path, "jpeg", exif=exif_bytes)
     print(f"Image saved with randomized EXIF data at {output_path}")
-
 
 input_image_path = "job.png"
 output_image_path = "/Users/Jonathan/Desktop/exif scrambler/new.png"
