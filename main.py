@@ -1,3 +1,4 @@
+import os
 import piexif
 from PIL import Image
 from random import choice, uniform
@@ -53,7 +54,7 @@ def scramble_exif(input_path, output_path):
         "0th": {
             piexif.ImageIFD.Make: random_make,
             piexif.ImageIFD.Model: random_model,
-            piexif.ImageIFD.Software: "RandomSoftware"  # Or any specific software you wish to use
+            piexif.ImageIFD.Software: "RandomSoftware"
         },
         "Exif": {},
         "GPS": gps_exif
@@ -63,7 +64,23 @@ def scramble_exif(input_path, output_path):
     img.save(output_path, "jpeg", exif=exif_bytes)
     print(f"Image saved with randomized EXIF data at {output_path}")
 
-input_image_path = "job.png"
-output_image_path = "/Users/Jonathan/Desktop/exif scrambler/new.png"
+def process_batch(input_dir, output_dir):
+    # Ensure output directory exists
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
 
-scramble_exif(input_image_path, output_image_path)
+    # Process each image in the input directory
+    for filename in os.listdir(input_dir):
+        if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif')):
+            input_path = os.path.join(input_dir, filename)
+            output_path = os.path.join(output_dir, filename)
+            try:
+                scramble_exif(input_path, output_path)
+            except Exception as e:
+                print(f"Error processing {filename}: {e}")
+
+# Specify your input and output directories
+input_directory = "/path/to/your/input/directory"
+output_directory = "/path/to/your/output/directory"
+
+process_batch(input_directory, output_directory)
