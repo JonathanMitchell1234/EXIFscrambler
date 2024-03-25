@@ -1,0 +1,150 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  color: #dfdbdbf2;
+  text-align: center;
+}
+
+
+form {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input[type="file"] {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #75129c;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+input[type="submit"]:hover {
+  background-color: #2b0855;
+}
+
+@keyframes animate {
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background: #4e54c8;
+    overflow: hidden;
+    z-index: -999;
+}
+.background li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 19s linear infinite;
+}
+
+
+
+
+.background li:nth-child(0) {
+    left: 11%;
+    width: 111px;
+    height: 111px;
+    bottom: -111px;
+    animation-delay: 1s;
+}
+.background li:nth-child(1) {
+    left: 56%;
+    width: 149px;
+    height: 149px;
+    bottom: -149px;
+    animation-delay: 5s;
+}
+.background li:nth-child(2) {
+    left: 61%;
+    width: 133px;
+    height: 133px;
+    bottom: -133px;
+    animation-delay: 8s;
+}
+.background li:nth-child(3) {
+    left: 46%;
+    width: 184px;
+    height: 184px;
+    bottom: -184px;
+    animation-delay: 14s;
+}
+.background li:nth-child(4) {
+    left: 57%;
+    width: 129px;
+    height: 129px;
+    bottom: -129px;
+    animation-delay: 11s;
+}
+.background li:nth-child(5) {
+    left: 82%;
+    width: 148px;
+    height: 148px;
+    bottom: -148px;
+    animation-delay: 4s;
+}
+.background li:nth-child(6) {
+    left: 75%;
+    width: 193px;
+    height: 193px;
+    bottom: -193px;
+    animation-delay: 7s;
+}
+.background li:nth-child(7) {
+    left: 71%;
+    width: 127px;
+    height: 127px;
+    bottom: -127px;
+    animation-delay: 14s;
+}
+.background li:nth-child(8) {
+    left: 24%;
+    width: 192px;
+    height: 192px;
+    bottom: -192px;
+    animation-delay: 9s;
+}
+.background li:nth-child(9) {
+    left: 84%;
+    width: 154px;
+    height: 154px;
+    bottom: -154px;
+    animation-delay: 2s;
+}
