@@ -65,8 +65,6 @@ def process_folder(folder_path, output_folder):
             except Exception as e:
                 print(f"Error processing {item_path}: {e}")
 
-# ... (the rest of the code remains the same)
-
 def convert_to_rational(number):
     fraction = Fraction.from_float(number).limit_denominator(1000000)
     return fraction.numerator, fraction.denominator
